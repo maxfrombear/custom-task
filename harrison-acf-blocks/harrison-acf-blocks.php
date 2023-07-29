@@ -14,8 +14,6 @@ if (!defined('ABSPATH')) {
 
 function harrison_acf_blocks_register_blocks() {
     if (function_exists('acf_register_block')) {
-
-        // Team Member Position Block
         acf_register_block(array(
             'name' => 'team-member-position',
             'title' => __('Team Member Position', 'harrison-acf-blocks'),
@@ -24,13 +22,16 @@ function harrison_acf_blocks_register_blocks() {
             'category' => 'common',
             'icon' => 'admin-users',
             'keywords' => array('team', 'position', 'acf'),
+            'supports' => array(
+                'align' => true,
+                'color' => array('background', 'text', 'gradients', 'link'),
+                'typography' => array('fontSize'),
+                'anchor' => true,
+            ),
             //'enqueue_style' => plugin_dir_url(__FILE__) . 'css/team-member-position-block.css', // Optional: Add CSS file for block styles
             'enqueue_script' => plugin_dir_url(__FILE__) . 'blocks/team-member-position.js', // Enqueue the block script
             'post_types' => array('team-member'), // Specify the custom post type to which the ACF field group is assigned
         ));
-
-        // Add more blocks here for other ACF fields as needed
-
     }
 }
 add_action('acf/init', 'harrison_acf_blocks_register_blocks');
