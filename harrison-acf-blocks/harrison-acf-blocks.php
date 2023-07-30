@@ -12,10 +12,6 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-/*
-Plugin Name: Harrison ACF Blocks
-*/
-
 
 // Register ACF block
 function harrison_acf_blocks_register_blocks() {
